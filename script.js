@@ -93,6 +93,37 @@ inp.on("close" ,() => {
                 b=b+a[i];
           }
       }
-      console.log("Total using iife function:",b)
+      console.log("Total using iife function:",b);
   })(arr);
+  let array1=[1,2,3,4,5];
+  let array2=[1,3,6,8,11];
+  let medium=function(array1,array2){
+  if(array1.length===array2.length)
+  {
+     let array3=array1.concat(array2);
+     array3.sort(function(a,b){
+         return a-b;
+     });
+     if(array3.length%2===0)
+     {
+        let c=(array3[array3.length/2])+(array3[((array3.length)-2)/2]);
+        c=c/2;
+        return c;
+     }
+  }
+  };
+  let med=medium(array1,array2);
+  console.log("medium using anonymous function",med);
+  ((array1,array2)=>{
+     let array3=array1.concat(array2);
+     array3.sort(function(a,b){
+         return a-b;
+     });
+     if(array3.length%2===0)
+     {
+        let c=(array3[array3.length/2])+(array3[((array3.length)-2)/2]);
+        c=c/2;
+        console.log("Medium using iife function",c);
+     }
+  })(array1,array2);
 });
